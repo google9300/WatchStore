@@ -7,7 +7,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
 import { ShoppingItemComponent } from './components/shopping-item/shopping-item.component';
-import { HighlightedCollectionComponent } from './components/highlighted-collection/highlighted-collection.component';
+import { CollectionComponent } from './components/collection/collection.component';
+import { HistoryComponent } from './components/history/history.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent,
@@ -16,8 +19,13 @@ import { HighlightedCollectionComponent } from './components/highlighted-collect
      HomeComponent,
      ShoppingListComponent,
      ShoppingItemComponent,
-     HighlightedCollectionComponent,],
-  imports: [BrowserModule],
+     CollectionComponent,
+     HistoryComponent,
+     ContactComponent,],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
