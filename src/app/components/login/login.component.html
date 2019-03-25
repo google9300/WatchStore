@@ -1,0 +1,13 @@
+<div >
+  <form class="d-flex flex-column" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<input type="text" name="usernameInput" placeholder="User Name" ngModel>
+<input type="text" name="passwordInput" placeholder="Password" ngModel>
+    <div>
+      <button type="submit">
+        Submit</button
+      ><button type="button" (click)="foo()" class="btn btn-primary">
+        CLICK RETRIEVE
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-
-import { shoppingItem } from "../shopping-item/shopping-item.model";
+import { Component } from "@angular/core";
+// import { AngularFireDatabase } from "@angular/fire/database";
+// import { Observable } from "rxjs";
 
 
 @Component({
@@ -8,9 +8,10 @@ import { shoppingItem } from "../shopping-item/shopping-item.model";
   templateUrl: "./shopping-list.component.html",
   styleUrls: ["./shopping-list.component.css"]
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent {
+  // public items: Observable<any[]>;
 
-  constructor() {}
-
-  ngOnInit() {}
+  // constructor(db: AngularFireDatabase) {
+  //   this.items = db.list("items-list").valueChanges();
+  // }
 }

@@ -1,11 +1,14 @@
-
-<div class="card col-md-3 mt-2 bg-light" style="display: inline-block; border:none;" *ngFor="let shoppingItem of shoppingItems">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title text-center">{{ shoppingItem.name}} </h5>
-      <p class="card-text text-center">{{shoppingItem.collection}}</p>
-      <p class="card-text text-center">{{shoppingItem.subCollection}}</p>
-      <p class="card-text text-center">{{shoppingItem.price}}$</p>      
-      <a href="#" class="stretched-link"></a>
-    </div>
+<div
+  class="card col mt-2 bg-light"
+  style="display: inline-block; border:none;"
+  *ngFor="let shopItem of (items | async)"
+>
+  <img class="card-img-top" src="{{ shopItem.imgUrl }}" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ shopItem.name }}</h5>
+    <p class="card-text text-center">{{ shopItem.collection }}</p>
+    <p class="card-text text-center">{{ shopItem.subCollection }}</p>
+    <p class="card-text text-center">{{ shopItem.price }}$</p>
+    <a href="#" class="stretched-link"></a>
   </div>
+</div>
