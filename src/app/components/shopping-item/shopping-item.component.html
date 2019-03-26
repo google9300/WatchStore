@@ -1,5 +1,5 @@
 <div
-  class="card col mt-2 bg-light"
+  class="card col mt-2 bg-light w-25"
   style="display: inline-block; border:none;"
   *ngFor="let shopItem of (items | async)"
 >
@@ -9,6 +9,6 @@
     <p class="card-text text-center">{{ shopItem.collection }}</p>
     <p class="card-text text-center">{{ shopItem.subCollection }}</p>
     <p class="card-text text-center">{{ shopItem.price }}$</p>
-    <a href="#" class="stretched-link"></a>
+    <button routerLink="itemInfo" class="btn btn-primary">Buy</button>
   </div>
 </div>

@@ -17,6 +17,8 @@ import { HistoryComponent } from "./components/history/history.component";
 import { ContactComponent } from "./components/contact/contact.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { LoginComponent } from "./components/login/login.component";
+import { ItemCollectionComponent } from './components/collection/item-collection/item-collection.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { LoginComponent } from "./components/login/login.component";
     HistoryComponent,
     ContactComponent,
     LoginComponent,
-    
+    ItemCollectionComponent
   ],
   imports: [
     BrowserModule,

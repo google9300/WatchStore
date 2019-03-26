@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, AngularFireList } from "@angular/fire/database";
+
 
 @Component({
   selector: 'app-contact',
@@ -13,3 +15,4 @@ export class ContactComponent implements OnInit {
   }
 
 }
+

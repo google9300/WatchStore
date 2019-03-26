@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { loginService } from "./services/login.service";
-import { NgForm } from "@angular/forms"
+import { NgForm } from "@angular/forms";
+import { error } from "@angular/compiler/src/util";
+import { snapshotChanges } from "@angular/fire/database";
+
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -9,52 +12,29 @@ import { NgForm } from "@angular/forms"
 })
 export class LoginComponent {
   userInputUsername: string = "";
-   dataValue = {};  
   constructor(private loginService: loginService) {}
   onSubmit(f: NgForm) {
-    console.log(f.value.usernameInput);  // { first: '', last: '' }
-    console.log(f.valid);  // false
-    return this.userInputUsername =f.value.usernameInput;
-    console.log(this.dataValue)
-  }
-  foo() {
+    let savedData = {};
     this.loginService.getDbUsers();
-    // this.loginService.ref
-    //   .orderByChild("admin")
-    //   .limitToFirst(1)
-    //   .on(
-    //     "child_added",
-    //     function(snapshot) {
-    //       console.log(snapshot.key);
-    //     },
-    //     error => console.log(error)
-    //   );
-    this.loginService.ref.on("value", function(snapshot) {
-      var dbUser = snapshot.val();
-      console.log(snapshot.val());
-    });
-    console.log(this.userInputUsername);
-  }
-  login() {
-    console.log(this.dataValue);
-  }
-  // bar() {
-  //   this.loginService.getAllUsers().subscribe(
-  //     allUsers => {
-  //       // const foundUser = _.find(allUsers, {
-  //       //   username: "admin",
-  //       //   password: "p@ssw0rd"
-  //       // });
-  //       // console.log(allUsers);
-  //       // console.log(foundUser);
+    this.loginService.ref
+      .orderByChild("admin")
+      .on("child_added", function(snapshot) {
+        const { username, password } = snapshot.val();
 
-  //       const foundUser = allUsers.find(
-  //         user => user.username === "admin" && user.password === "p@ssw0rd"
-  //       );
+        if (f.valid) {
+          //  check for user credentials
+          const { usernameInput, passwordInput } = f.value;
 
-  //       console.log(foundUser);
-  //     },
-  //     error => console.log(error)
-  //   );
-  // }
+          if (username === usernameInput && password === passwordInput) {
+            // successfully logged in
+            console.log('success')
+          } else {
+            // DO NOT HANDLE
+          }
+        } else {
+          // HANDLE INPUT VALIDATION ERROR
+          // return error
+        }
+      });
+  }
 }
